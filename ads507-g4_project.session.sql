@@ -96,4 +96,8 @@ SHOW TABLES;
 ALTER TABLE weather_forecasts 
 CHANGE COLUMN rain_chance rain_intensity DECIMAL(5,2) DEFAULT NULL;
 
-DESCRIBE weather_forecasts;
+DESCRIBE events;
+
+-- altering table events ticketmaster_url to category
+ALTER TABLE events
+CHANGE COLUMN ticketmaster_url category VARCHAR(255) DEFAULT NULL;
