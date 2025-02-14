@@ -91,3 +91,9 @@ CREATE TABLE IF NOT EXISTS weather_forecasts (
 );
 
 SHOW TABLES;
+
+-- change the name of the rain_chance column to rain_intensity
+ALTER TABLE weather_forecasts 
+CHANGE COLUMN rain_chance rain_intensity DECIMAL(5,2) DEFAULT NULL;
+
+DESCRIBE weather_forecasts;
