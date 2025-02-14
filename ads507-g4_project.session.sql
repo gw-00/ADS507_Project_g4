@@ -101,3 +101,20 @@ DESCRIBE events;
 -- altering table events ticketmaster_url to category
 ALTER TABLE events
 CHANGE COLUMN ticketmaster_url category VARCHAR(255) DEFAULT NULL;
+
+-- checking the table events
+SELECT * FROM events;
+-- deleting the contents of the events table
+TRUNCATE TABLE events;
+
+-- checking the table weather_forecasts
+SELECT * FROM weather_forecasts;
+-- deleting the contents of the weather_forecasts table
+TRUNCATE TABLE weather_forecasts;
+
+-- checking the table venues
+SELECT * FROM venues;
+-- deleting the contents of the venues table
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE venues;
+SET FOREIGN_KEY_CHECKS = 1;
