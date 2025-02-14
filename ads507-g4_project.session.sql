@@ -2,11 +2,10 @@
 USE group4_project;
 
 -- Create the tables for the database
--- create the venues table
+-- create the venues table round 1
 CREATE TABLE IF NOT EXISTS venues (
     venue_id VARCHAR(255) NOT NULL,
     venue_name VARCHAR(255) NOT NULL,
-    venue_address VARCHAR(255) NOT NULL,
     venue_city VARCHAR(255) NOT NULL,
     venue_state VARCHAR(255) NOT NULL,
     venue_zip VARCHAR(255) NOT NULL,
@@ -16,7 +15,7 @@ CREATE TABLE IF NOT EXISTS venues (
     PRIMARY KEY (venue_id)
 );
 
--- create the events table
+-- create the events table round 1
 CREATE TABLE IF NOT EXISTS events (
     event_id VARCHAR(255) NOT NULL,
     event_name VARCHAR(255) NOT NULL,
@@ -31,7 +30,7 @@ CREATE TABLE IF NOT EXISTS events (
         ON UPDATE CASCADE
 );
 
--- create the weather_forecasts table
+-- create the weather_forecasts table round 1
 CREATE TABLE IF NOT EXISTS weather_forecasts (
     forecast_id INT AUTO_INCREMENT,
     event_id VARCHAR(255) NOT NULL,
@@ -49,3 +48,46 @@ CREATE TABLE IF NOT EXISTS weather_forecasts (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+------------------------------------------------------------------------------------------
+--- Schema redesign for round 2
+-- Venues table redesign
+CREATE TABLE IF NOT EXISTS venues (
+    venue_id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    location VARCHAR(50) DEFAULT NULL,  -- Stores "latitude,longitude"
+    PRIMARY KEY (venue_id)
+);
+
+-- Events table redesign
+CREATE TABLE IF NOT EXISTS events (
+    event_id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    start_date DATETIME NOT NULL,
+    venue_id VARCHAR(255) NOT NULL,
+    ticketmaster_url VARCHAR(512) DEFAULT NULL,
+    PRIMARY KEY (event_id),
+    CONSTRAINT fk_events_venues
+        FOREIGN KEY (venue_id)
+        REFERENCES venues(venue_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Weather forecasts table redesign
+CREATE TABLE IF NOT EXISTS weather_forecasts (
+    forecast_id INT AUTO_INCREMENT PRIMARY KEY,
+    forecast_time DATETIME NOT NULL,
+    forecast_temperature DECIMAL(5,2) DEFAULT NULL,
+    forecast_temp_apparent DECIMAL(5,2) DEFAULT NULL,
+    forecast_humidity DECIMAL(5,2) DEFAULT NULL,
+    rain_chance DECIMAL(5,2) DEFAULT NULL,
+    forecast_winds DECIMAL(5,2) DEFAULT NULL,
+    weather_code INT DEFAULT NULL,
+    weather_icon TEXT DEFAULT NULL
+);
+
+SHOW TABLES;
