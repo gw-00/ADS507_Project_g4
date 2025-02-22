@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS events (
     name VARCHAR(255) NOT NULL,
     start_date DATETIME NOT NULL,
     venue_id VARCHAR(255) NOT NULL,
-    ticketmaster_url VARCHAR(512) DEFAULT NULL,
+    category VARCHAR(512) DEFAULT NULL,
     PRIMARY KEY (event_id),
     CONSTRAINT fk_events_venues
         FOREIGN KEY (venue_id)
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS weather_forecasts (
     forecast_temperature DECIMAL(5,2) DEFAULT NULL,
     forecast_temp_apparent DECIMAL(5,2) DEFAULT NULL,
     forecast_humidity DECIMAL(5,2) DEFAULT NULL,
-    rain_chance DECIMAL(5,2) DEFAULT NULL,
+    rain_intensity DECIMAL(5,2) DEFAULT NULL,
     forecast_winds DECIMAL(5,2) DEFAULT NULL,
     weather_code INT DEFAULT NULL,
     weather_icon TEXT DEFAULT NULL
