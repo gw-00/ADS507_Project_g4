@@ -133,11 +133,12 @@ Stores information on the hourly forecasts for the next five(5) days, which equa
 - rain_intensity: How much rain in millimeters forecasted at the time.
 - forecast_winds: Wind speed forecasted at that time. In database it is in km/hr and in the output it is in mph
 - weather_code: Weather code indicating the predominant weather at the time of the forecast.
-- weather_icon: The associated weather icon for the predominant waether at the time of the forecast.
+- weather_icon: The associated weather icon for the predominant weather at the time of the forecast, links to a github repository for Tomorrow.io weather icons.
 
 ## System Diagram
 
 
 ## License
 
-## 
+## Notes
+The icons in this application are powered by Tomorrow.io Github repository which can be found at this [Repository](https://github.com/Tomorrow-IO-API/tomorrow-weather-codes/tree/master/V1_icons/color)
