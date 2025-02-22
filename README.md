@@ -12,26 +12,20 @@ As the data is extracted from the API's it is immediately loaded into the establ
 
 ## Features
 - **Data Extraction:**
-    -
-    -
+    - Extracts data from Ticketmaster and Tomorrow.io API's
 
 - **Data Loading:**
-    -
-    -
-    -
+    - Loads data into a Microsoft Azure MySQL flexible server while performing only minimal DATETIME standardization transformations.
 
 - **Data Transformation:**
-    -
-    -
-    -
+    - During SQL querying for the final email notification, transformations are applied as the data comes from the database and is converted into a dataframe and then transformed into an HTML table.
 
 - **Automation:**
-    -
-    - 
+    - Windows Task Scheduler and a batch file automate the process of activating the correct anaconda environment and running the jupyter notebook containing the code.
 
 - **Output:**
-    -
-    -
+    - An email notification with a table containing all the events and weather forecasts is sent to emails in the recipient emails section of the .env file.
+    - The pipeline is set to run every weekday at 12:01AM Pacific Standard Time. (UTC -8)
 
 ## System Architecture
 
@@ -40,16 +34,17 @@ As the data is extracted from the API's it is immediately loaded into the establ
     - Tomorrow.io API (Weather): Provides all hourly weather forecast information over the course of the next five days.
 
 - **Pipeline:**
-    - Extraction:
-    - Loading:
-    - Transform: 
+    - Extraction: Extracts both Ticketmaster and Weather forecast infomration from a JSON format.
+    - Loading: Loads the data into a MySQL database with only minor transformations along the way to standardize DATETIME information.
+    - Transform: Performs a SQL query and transformations to include unit conversions from celsius and km/h to fahrenheit and mph.
 
 - **Output:**
-    -
-    -
+    - SQL Query is performed and tables are joined into a dataframe which is then converted into an HTML table.
+    - Email function sends the HTML formatted output to an email list via Secure Message transfer Protocol and Gmail servers
+    - Output is every event and associated weather forecast over the course of the next five (5) days.
 
 - **Automation:**
-    -
+    - A batch file triggers the execution of the whole program via the Windows Task Scheduler.
 
 
 ## Installation and Setup
