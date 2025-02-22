@@ -36,8 +36,8 @@ As the data is extracted from the API's it is immediately loaded into the establ
 ## System Architecture
 
 - **Data Sources:**
-    - Discovery API (Ticketmaster): 
-    - Tomorrow.io API (Weather):
+    - Discovery API (Ticketmaster): Provides all venue and event details over the next five days.
+    - Tomorrow.io API (Weather): Provides all hourly weather forecast information over the course of the next five days.
 
 - **Pipeline:**
     - Extraction:
@@ -59,6 +59,7 @@ In order to establish your environment correctly and configure the environment t
     - Python 3.12+
     - Anaconda distribution or other environment manager
     - MySQL database that conforms to the schema listed below
+    - Windows Task Scheduler
 
 ### Libraries and Packages
     - Pandas
