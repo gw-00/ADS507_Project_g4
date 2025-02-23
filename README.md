@@ -135,6 +135,6 @@ Stores information on the hourly forecasts for the next five(5) days, which equa
 ![alt text](pipeline_architecture.png)
 
 ## License
-
+Creative Commons
 ## Notes
 The icons in this application are powered by Tomorrow.io Github repository which can be found at this [Repository](https://github.com/Tomorrow-IO-API/tomorrow-weather-codes/tree/master/V1_icons/color)
